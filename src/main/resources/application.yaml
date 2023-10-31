@@ -10,7 +10,11 @@ spring:
       enabled: true
 
   jpa:
+    defer-datasource-initialization: true
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+
+
+    defer-datasource:
