@@ -16,7 +16,7 @@ public class RunnerService {
 
 
     @Transactional
-    public Runner saveRunner(Runner runner) {
+    public Runner save(Runner runner) {
        return runnerRepository.save(runner);
     }
 
