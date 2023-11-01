@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -23,11 +24,19 @@ public class RunnerService {
 
     @Transactional
     public Runner findById(UUID id) {
-        return  runnerRepository.findById(id).orElseThrow(() ->new EntityNotFoundException(String.format("Runner Not Found", id)));
+        return runnerRepository.findById(id).orElseThrow(() ->new RuntimeException(String.format("Runner Not Found", id)));
     }
 
     @Transactional
     public List<Runner> getAll() {
         return runnerRepository.findAll();
     }
-}
+
+    @Transactional
+    public Runner delete(UUID id) {
+        runnerRepository.deleteById(id);
+        return null;
+    }
+
+    }
+

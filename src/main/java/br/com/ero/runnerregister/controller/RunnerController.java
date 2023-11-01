@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -26,15 +25,23 @@ public class RunnerController {
     }
 
     @GetMapping("runners/{id}")
-    public ResponseEntity<Object> runnersGetById(@PathVariable(value = "id") UUID tb_runnerId) {
-        Optional<Runner> runnerOptional = Optional.ofNullable(runnerService.findById(tb_runnerId));
-            return ResponseEntity.status(HttpStatus.OK).body(runnerOptional.get());
+    public ResponseEntity<Runner> runnerGetById(@PathVariable(value = "id") UUID tb_runnerId){
+        Runner runner = runnerService.findById(tb_runnerId);
+        return ResponseEntity.status(HttpStatus.OK).body(runner);
     }
     @GetMapping("runners")
     public ResponseEntity<List<Runner>> runnersGetAll() {
         List<Runner> runners = runnerService.getAll();
-        return ResponseEntity.ok(runners);
+        return ResponseEntity.status(HttpStatus.OK).body(runners);
     }
+
+    @DeleteMapping("runners/{id}")
+    public ResponseEntity<Runner> runnerDelete(@PathVariable(value = "id") UUID tb_runnerId){
+        Runner runner = runnerService.delete(tb_runnerId);
+        return ResponseEntity.status(HttpStatus.OK).body(runner);
+    }
+
+
 }
 
 
