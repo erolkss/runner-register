@@ -5,6 +5,7 @@ import br.com.ero.runnerregister.model.Runner;
 import br.com.ero.runnerregister.repository.RunnerRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -23,5 +24,10 @@ public class RunnerService {
     @Transactional
     public Runner findById(UUID id) {
         return  runnerRepository.findById(id).orElseThrow(() ->new EntityNotFoundException(String.format("Runner Not Found", id)));
+    }
+
+    @Transactional
+    public List<Runner> getAll() {
+        return runnerRepository.findAll();
     }
 }
