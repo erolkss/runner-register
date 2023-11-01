@@ -38,5 +38,10 @@ public class RunnerService {
         return null;
     }
 
+    public Runner updateRunnerNameS(UUID tbRunnerId, String tbRunnerName) {
+        Runner runner = findById(tbRunnerId);
+        runner.setTb_runner_name(tbRunnerName);
+        return runner;
     }
+}
 

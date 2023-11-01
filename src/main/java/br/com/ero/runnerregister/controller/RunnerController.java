@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.xml.transform.OutputKeys;
 import java.util.UUID;
 
 @RestController
@@ -40,6 +41,13 @@ public class RunnerController {
         Runner runner = runnerService.delete(tb_runnerId);
         return ResponseEntity.status(HttpStatus.OK).body(runner);
     }
+
+    @PatchMapping("runners/{id}")
+    public ResponseEntity<Runner>  updateRunnerName(@PathVariable("id") UUID tb_runnerId, @RequestBody Runner runner){
+        Runner run = runnerService.updateRunnerNameS(tb_runnerId, runner.getTb_runner_name());
+        return ResponseEntity.status(HttpStatus.OK).body(run);
+    }
+
 
 
 }
