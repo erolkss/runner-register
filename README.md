@@ -1,6 +1,5 @@
 # CRAZY RACE - AMAZON
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE) 
-
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/erolkss/runner-register/blob/master/LICENSE)
 # Sobre o projeto
 
 A aplicação simula uma REST API simples, que simula o cadastro de corredores de acordo com o categoria de cada corredor na CRAZY RACE - AMAZON.
